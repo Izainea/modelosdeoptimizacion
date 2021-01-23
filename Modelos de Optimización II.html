@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<title>Modelos de Optimización 1</title>
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src='https://kit.fontawesome.com/a076d05399.js'></script>
+<style>
+* {
+  box-sizing: border-box;
+}
+
+.column {
+  float: left;
+  width: 33%;
+  padding: 0 10px;
+}
+
+/* Remove extra left and right margins, due to padding */
+.row {margin: 0 -5px;}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive columns */
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+    display: block;
+    margin-bottom: 20px;
+  }
+}
+
+/* Style the counter cards */
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  padding: 16px;
+  text-align: center;
+  background-color: #f1f1f1;
+}
+body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
+.w3-row-padding img {margin-bottom: 12px}
+/* Set the width of the sidebar to 120px */
+.w3-sidebar {width: 120px;background: #222;}
+/* Add a left margin to the "page content" that matches the width of the sidebar (120px) */
+#main {margin-left: 120px}
+/* Remove margins from "page content" on small screens */
+@media only screen and (max-width: 600px) {#main {margin-left: 0}}
+</style>
+<body class="w3-white">
+
+<!-- Icon Bar (Sidebar - hidden on small screens) -->
+<nav class="w3-sidebar w3-bar-block w3-small w3-hide-small w3-center w3-blue-grey">
+  <!-- Avatar image in top left corner -->
+  <a href="https://www.uexternado.edu.co/" class="w3-bar-item w3-button w3-padding-large w3-blue-grey">
+    <img src="https://www.uexternado.edu.co/wp-content/themes/externado_theme/images/logo-uec.svg" class="w3-xxlarge" alt="UEC" style="width:100%;height:300%"></a>
+  <a href="#" class="w3-bar-item w3-button w3-padding-large w3-blue-grey">
+    <i class="fa fa-home w3-xxlarge"></i>
+    <p>INICIO</p>
+  </a>
+  <a href="#about" class="w3-bar-item w3-button w3-padding-large w3-blue-grey">
+    <i class="fas fa-chalkboard-teacher w3-xxlarge"></i>
+    <p>CURSO</p>
+  </a>
+  <a href="#photos" class="w3-bar-item w3-button w3-padding-large w3-blue-grey">
+    <i class="fab fa-python w3-xxlarge"></i>
+    <p>PYTHON</p>
+  </a>
+  <a href="#contact" class="w3-bar-item w3-button w3-padding-large w3-blue-grey">
+    <i class="fa fa-envelope w3-xxlarge"></i>
+    <p>CONTACTO</p>
+  </a>
+</nav>
+
+<!-- Navbar on small screens (Hidden on medium and large screens) -->
+<div class="w3-top w3-hide-large w3-hide-medium" id="myNavbar">
+  <div class="w3-bar w3-black w3-opacity w3-hover-opacity-off w3-center w3-small">
+    <a href="#" class="w3-bar-item w3-button w3-black" style="width:25% !important">INICIO</a>
+    <a href="#about" class="w3-bar-item w3-button" style="width:25% !important">CURSO</a>
+    <a href="#photos" class="w3-bar-item w3-button" style="width:25% !important">PYTHON</a>
+    <a href="#contact" class="w3-bar-item w3-button" style="width:25% !important">CONTACTO</a>
+  </div>
+</div>
+
+<!-- Page Content -->
+<div class="w3-padding-large" id="main">
+  <!-- Header/Home -->
+  <header class="w3-container w3-padding-32 w3-center w3-light-grey" id="home">
+    <span class="w3-large w3-text-blue-grey w3-hide-small">Universidad Externado de Colombia</span>
+    <h1 class="w3-xxlarge w3-text-blue-grey"> Modelos de optimización II</h1>
+    <p>Administración de Empresas</p>
+  </header>
+
+  <!-- About Section -->
+  <div class="w3-content w3-justify w3-text-grey w3-padding-64" id="about">
+    <h2 class="w3-text-blue-grey">PRESENTACIÓN</h2>
+    <hr style="width:200px" class="w3-opacity">
+    <p>En MODELOS DE OPTIMIZACIÓN II los futuros profesionales de la Universidad Externado de Colombia desarrollarán las competencias cognitivas y comunicativas necesarias para entender e interpretar distintos sectores aplicados en la Administración de Empresas, tales como: i) Manufactura; ii) Transporte; iii) Telecomunicaciones, entre otros más, sectores, que serán abordados en asignaturas clave como Logística, Mercados financieros, Formulación y desarrollo de proyectos.
+    </p>
+    <p>Por tal motivo, el curso de modelos de optimización II tiene como objetivo formular, solucionar e interpretar modelos estocásticos y determinísticos aplicados en diversos sectores económicos utilizando herramientas computacionales. </p>
+
+    <h3 class="w3-text-blue-grey">COMPETENCIAS</h3>
+    <ul>
+      <li> Identificar el comportamiento estocástico o determinístico de factores externos como la demanda para modelar un inventario.
+      </li>
+      <li>Reconocer la diferencia entre procesos de tiempo discreto y continuo para clasificar y modelar cadenas de Markov
+      </li>
+      <li>Identificar el comportamiento estocástico o determinístico de los procesos de llegada y de servicio de una línea de espera para modelar una cola a partir de la notación de Kendall-Lee.
+      </li>
+      <li>Identificar la formulación y notación matemática del curso para entender las referencias bibliográficas propuestas.</li>
+    </ul>
+    <h2 class="w3-padding-16 w3-text-blue-grey">UNIDADES TEMÁTICAS</h2>
+    <p class="w3-wide"><i class="far fa-file-alt "></i> PROCESOS ESTOCÁSTICOS</p>
+    <p class="w3-wide"><i class="far fa-file-alt "></i> MODELOS DE INVENTARIO</p>
+    <p class="w3-wide"><i class="far fa-file-alt "></i> CADENAS DE MARKOV EN TIEMPO CONTINUO Y DISCRETO</p>
+    <p class="w3-wide"><i class="far fa-file-alt "></i> LÍNEAS DE ESPERA</p>
+    <p class="w3-wide"><i class="far fa-file-alt "></i> PROGRAMACIÓN DINÁMICA</p>
+    <h2 class="w3-text-blue-grey">MATERIALES y EVALUACIONES</h2>
+    <div class="w3-row w3-center w3-padding-16 w3-section w3-light-grey">
+
+      <a href="#photos">
+      <div class="w3-quarter w3-section">
+        <span class="w3-xxlarge"><i class="fab fa-python"></i></span><br>
+        Cuadernos Python
+      </div>
+      </a>
+
+      <a href="#casos">
+        <div class="w3-quarter w3-section">
+        <span class="w3-xxlarge"><i class="fas fa-folder-open"></i></span><br>
+        Casos de estudio
+        </div>
+      </a>
+
+      <a href="#quiz">
+        <div class="w3-quarter w3-section">
+        <span class="w3-xxlarge"><i class="fas fa-tasks"></i></span><br>
+        Quices y talleres
+      </div>
+      </a>
+      <a href="#proyecto">
+      <div class="w3-quarter w3-section">
+        <span class="w3-xxlarge"><i class="fas fa-project-diagram"></i></span><br>
+        Proyecto final
+      </div>
+       </a>
+
+
+
+
+
+    </div>
+
+    <a href="files/ProgramaM2.pdf">
+      <button class="w3-button w3-light-grey  w3-section">
+        <i class="fa fa-download"></i> Descarga Programa del Curso
+      </button>
+    </a>
+  </div>
+
+   <div class="w3-content w3-justify w3-text-grey w3-padding-64" id="photos">
+    <h3 class="w3-padding-16 w3-text-blue-grey">CUADERNOS PYTHON</h3>
+<p>Una lista con los diferentes cuadernos que han desarrollado los profesores del Departamento de Matemáticas de la Universidad Externado de Colombia para el curso. </p>
+<div class="row">
+  <a href="Cuadernos/Modelos%20II/1.%20Distribuciones%20de%20probabilidad.ipynb">
+  <div class="column">
+    <div class="card w3-hover-blue-grey w3-padding-64" >
+      <h3 class="w3-medium" ><b>Distribuciones de Probabilidad</b></h3>
+    </div>
+  </div>
+  </a>
+
+    <a href="Cuadernos/Modelos%20II/2.%20Modelos%20de%20Inventario.ipynb">
+  <div class="column">
+    <div class="card w3-hover-blue-grey w3-padding-64 " >
+      <h3 class="w3-medium" ><b>Modelos de Inventario</b></h3>
+    </div>
+  </div>
+    </a>
+    <a href="Cuadernos/Modelos%20II/3.%20Líneas%20de%20espera.ipynb.ipynb">
+  <div class="column">
+    <div class="card w3-hover-blue-grey w3-padding-64" >
+      <h3 class="w3-medium" ><b>Líneas de Espera</b></h3>
+    </div>
+  </div>
+      </a>
+
+    <a href="Cuadernos/Modelos%20II/4.%20Simulación%20con%20Python.ipynb">
+   <div class="column">
+    <div class="card w3-hover-blue-grey w3-padding-64" >
+      <h3 class="w3-medium" ><b>Simulación con Python</b></h3>
+    </div>
+  </div>
+      </a>
+
+    <a href="Cuadernos/Modelos%20II/Taller%201%20Distribuciones.ipynb">
+   <div class="column">
+    <div class="card w3-hover-blue-grey w3-padding-64" >
+      <h3 class="w3-medium" ><b>Distribuciones de Probabilidad T</b></h3>
+    </div>
+  </div>
+      </a>
+
+    <a href="Cuadernos/Modelos%20II/Taller%202%20Modelos%20de%20Inventario.ipynb">
+      <div class="column">
+    <div class="card w3-hover-blue-grey w3-padding-64" >
+      <h3 class="w3-medium" ><b>Modelos de Inventario T</b></h3>
+    </div>
+  </div>
+      </a>
+      </div>
+ </div>
+
+  <div class="w3-content w3-justify w3-text-grey w3-padding-16" id="casos">
+    <!-- Casos tables -->
+    <h3 class="w3-padding-16 w3-text-blue-grey">CASOS DE ESTUDIO</h3>
+
+    <div class="w3-row-padding" style="margin:0 -16px">
+      <div class="w3-margin-bottom">
+        <ul class="w3-ul w3-white w3-opacity w3-hover-opacity-off">
+          <li class="w3-dark-grey w3-xlarge w3-padding-32">
+            <p class="w3-medium">PAQUETE PULP </p>
+            <h3><i>Optimization with PuLP</i></h3>
+            <p class="w3-small">Documentation in <a href="https://coin-or.github.io/pulp/">https://coin-or.github.io/pulp/</a>
+            </p>
+          </li>
+          <li class="w3-padding-16"><a href="https://coin-or.github.io/pulp/CaseStudies/a_blending_problem.html"> A Blending Problem
+</a></li>
+          <li class="w3-padding-16"><a href="https://coin-or.github.io/pulp/CaseStudies/a_set_partitioning_problem.html"> A Set Partitioning Problem
+</a></li>
+          <li class="w3-padding-16"><a href="https://coin-or.github.io/pulp/CaseStudies/a_sudoku_problem.html"> A Sudoku Problem formulated as an LP
+</a></li>
+          <li class="w3-padding-16"><a href="https://coin-or.github.io/pulp/CaseStudies/a_transportation_problem.html">A Transportation Problem
+</a></li>
+          <li class="w3-padding-16"><a href="https://coin-or.github.io/pulp/CaseStudies/a_two_stage_production_planning_problem.html"> A Two Stage Production Planning Problem</a></li>
+
+          </li>
+          <li class="w3-light-grey w3-padding-24">
+           <a href="https://coin-or.github.io/pulp/index.html"> <button class="w3-button w3-white w3-padding-large w3-hover-black">Pulp package</button></a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="w3-margin-bottom">
+        <ul class="w3-ul w3-white w3-opacity w3-hover-opacity-off">
+          <li class="w3-dark-grey w3-xlarge w3-padding-32">
+            <p class="w3-medium">CASOS PARA RESOLVER</p>
+            <h3><i>Métodos cuantitativos para los negocios, 11a ed.</i></h3>
+            <p class="w3-small">Anderson, David R., Dennis J. Sweeney, Thomas A. Williams,
+            Jeffrey D. Camm y Kipp Martin. Cengage Learning 2011
+            </p>
+          </li>
+          <li class="w3-padding-16">Equilibrio de la carga de trabajo. pág 285.</li>
+          <li class="w3-padding-16">Mezcla de productos, estrategia de inversión y estrategia de arrendamiento de camiones. Pág 349.</li>
+          <li class="w3-padding-16">Campañas publicitarias, capacitaciones eficientes, programación de planta laboral y otros. Pág 406. </li>
+          <li class="w3-padding-16">Modelos de distribución. Pág 468.</li>
+          <li class="w3-padding-16">Programación Lineal Entera. Pág 518.</li>
+          <li class="w3-padding-16">Optimización avanzada. Pág 564.</li>
+          </li>
+          <li class="w3-light-grey w3-padding-24">
+            <a href="http://eds.b.ebscohost.com/eds/detail/detail?vid=1&sid=bcdc8d5a-b350-4feb-86ff-7a1c096cd99b%40pdc-v-sessmgr03&bdata=Jmxhbmc9ZXMmc2l0ZT1lZHMtbGl2ZSZzY29wZT1zaXRl#AN=uec.244081&db=cat05988a"><button class="w3-button w3-white w3-padding-large w3-hover-black">Consulta Libro</button></a>
+          </li>
+        </ul>
+      </div>
+
+
+      <!-- End Casos tables -->
+    </div>
+    <!-- End About Section -->
+  </div>
+
+  <!-- Portfolio Section -->
+
+  <!-- End Portfolio Section -->
+
+<div class="w3-content w3-justify w3-text-grey w3-padding-64" id="quiz">
+      <h2 class="w3-blue-grey"> QUICES Y TALLERES</h2>
+    <p> Información proximamente...</p>
+</div>
+
+    <div class="w3-content w3-justify w3-text-grey w3-padding-64" id="proyecto">
+      <h2 class="w3-blue-grey"> PROYECTO FINAL</h2>
+      <p> Información proximamente...</p>
+</div>
+
+
+
+<div class="w3-content w3-justify w3-text-grey w3-padding-64"  id="contact">
+    <div class="w3-center w3-padding-64">
+      <span class="w3-xlarge w3-bottombar w3-border-dark-grey w3-padding-16">PROFESORES</span>
+    </div>
+
+    <div class="w3-third w3-margin-bottom">
+      <div class="w3-card-4" >
+        <img src="https://www.uexternado.edu.co/wp-content/uploads/2020/02/122.jpg" alt="Juan Lesmes" style="width:100%">
+        <div class="w3-container">
+          <h3 class="w3-medium">Juan Camilo Lesmes</h3>
+          <p class="w3-opacity">Economista</p>
+          <p  style="height: 150px"> <i>Intereses: </i> Teoría de Juegos, Modelos Dinámicos y Diseño de Mecanismos.</p>
+          <p><a href="mailto:juan.lesmes@uexternado.edu.co"> <button class="w3-button w3-light-grey w3-block"> juan.lesmes@uexternado.edu.co </button></a></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="w3-third w3-margin-bottom">
+      <div class="w3-card-4" >
+        <img src="https://www.uexternado.edu.co/wp-content/uploads/2020/02/135.jpg" alt="Santiago Perez" style="width:100%">
+        <div class="w3-container">
+          <h3 class="w3-medium">Santiago A Perez Angarita</h3>
+          <p class="w3-opacity">Matemático</p>
+          <p  style="height: 150px"> <i>Intereses: </i> modelamiento y filtrado de series de tiempo económicas y herramientas estadísticas para la toma de decisiones.</p>
+          <p><a href="mailto:edwin.castillo@uexternado.edu.co"> <button class="w3-button w3-light-grey w3-block"> edwin.castillo@uexternado.edu.co </button></a></p>
+        </div>
+      </div>
+    </div>
+
+      <div class="w3-third w3-margin-bottom">
+      <div class="w3-card-4" >
+        <img src="https://www.uexternado.edu.co/wp-content/uploads/2020/02/150.jpg" alt="Isaac Zainea" style="width:100%">
+        <div class="w3-container">
+          <h3 class="w3-medium">Carlos Isaac Zainea Maya</h3>
+          <p class="w3-opacity">Matemático</p>
+          <p style="height: 150px"> <i>Intereses: </i> Topología de datos, Teoría de representaciones, Inteligencia artificial, Minería de datos, Teoría de autómatas, Teoría de computación, Álgebra geométrica.</p>
+          <p><a href="mailto:carlos.zainea@uexternado.edu.co" ><button class="w3-button w3-light-grey w3-block"> carlos.zainea@uexternado.edu.co </button></a></p>
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+
+    <!-- Footer -->
+  <footer class="w3-content w3-padding-64 w3-text-grey w3-xlarge">
+    <p class="w3-medium">Powered by <a href="https://izainea.github.io/">Isaac Zainea</a></p>
+  <!-- End footer -->
+  </footer>
+
+<!-- END PAGE CONTENT -->
+</div>
+
+    </div>
+</body>
+</html>
+
