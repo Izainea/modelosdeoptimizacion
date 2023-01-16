@@ -1,0 +1,210 @@
+\documentclass{beamer}
+\usepackage{tikz}
+\usetikzlibrary{mindmap}
+\usepackage{amsfonts,amsmath,oldgerm}
+\usetheme{sintef}
+
+\newcommand{\testcolor}[1]{\colorbox{#1}{\textcolor{#1}{test}}~\texttt{#1}}
+
+\usefonttheme[onlymath]{serif}
+
+\titlebackground*{assets/background}
+
+\newcommand{\hrefcol}[2]{\textcolor{cyan}{\href{#1}{#2}}}
+
+\title{Modelos de optimización en los negocios}
+\subtitle{Facultad de Administración de Empresas}
+\course{Modelos de optimización}
+\author{\href{mailto:carlos.zainea@uexternado.edu.co}{Isaac Zainea}}
+
+
+\begin{document}
+\maketitle
+
+
+
+\section{Introducción}
+
+\begin{frame}
+    \frametitle{Introducción}
+    
+    La optimización es una herramienta esencial en la toma de decisiones empresariales. Se utiliza para encontrar la mejor solución en un problema donde existen restricciones y objetivos. Existen dos tipos de optimización: lineal y no lineal.
+    
+\end{frame}
+
+\begin{frame}
+    La optimización lineal se utiliza para encontrar el mejor resultado en un problema donde las restricciones son lineales y los objetivos también son lineales. Por otro lado, la optimización no lineal se utiliza para encontrar el mejor resultado en un problema donde las restricciones o los objetivos no son lineales.
+    
+    
+    
+\end{frame}
+
+\begin{frame}
+    La optimización es especialmente importante en los negocios porque permite a las empresas maximizar su utilidad, minimizar sus costos y tomar decisiones estratégicas. Durante esta clase, aprenderás sobre los conceptos básicos de la optimización y cómo se aplican en problemas reales de negocios.
+\end{frame}
+\begin{frame}
+    \tikz[mindmap,text=white,
+        root concept/.style={concept color=blue},
+        level 1 concept/.append style=
+{every child/.style={concept color=blue!50}}]
+    \node [concept] {\small Importancia de la Optimización}
+    child[grow=-180] {node[concept] {\footnotesize Maximizar utilidad}}
+    child[grow=-120 ] {node[concept] {\footnotesize  Minimizar costos}}
+    child[grow=-60 ] {node[concept] {\footnotesize  Tomar decisiones estratégicas}}
+    child[grow=0 ] {node[concept] {\footnotesize  Mejorar la eficiencia}};
+\end{frame}
+
+\section{Optimización lineal}
+
+
+\begin{frame}
+    \frametitle{Optimización lineal}
+    
+    La optimización lineal es una técnica matemática utilizada para encontrar el mejor resultado en un problema donde las restricciones y los objetivos son lineales. Es una herramienta esencial en la toma de decisiones empresariales, ya que permite a las empresas maximizar su utilidad o minimizar sus costos.
+    
+\end{frame}
+
+\begin{frame}
+    \frametitle{Ejemplo 1: Asignación de Recursos}
+    
+    Un ejemplo de aplicación de la optimización lineal en los negocios es el problema de la asignación de recursos. Supongamos que una empresa tiene tres proyectos y solo tiene recursos limitados para asignar a cada uno. La empresa quiere maximizar su utilidad. El problema se puede presentar de la siguiente manera:
+    
+    \begin{align*}
+    \text{Maximizar} \qquad & f(x_1, x_2, x_3) = 40x_1 + 50x_2 + 60x_3 \\
+    \text{Sujeto a} \qquad & x_1 + x_2 + x_3 \leq 100 \\
+    & x_1 \geq 0, x_2 \geq 0, x_3 \geq 0 \\
+    \end{align*}
+    
+    donde $x_1$, $x_2$, $x_3$ son las cantidades de recursos asignados a cada proyecto.
+    La solución óptima del problema sería asignar 40 unidades de recursos al proyecto 1, 50 unidades al proyecto 2 y 10 unidades al proyecto 3, lo que maximizaría la utilidad en 2,000 unidades.
+    
+    \end{frame}
+    
+    \begin{frame}
+    \frametitle{Ejemplo 2: Producción}
+    
+    Otro ejemplo podría ser una empresa que produce dos productos A y B y quiere determinar la mejor manera de asignar sus recursos de producción para maximizar sus ganancias. El problema se puede plantear como:
+    
+    \begin{align*}
+    \text{Maximizar} \qquad & f(x_1, x_2) = 3x_1 + 2x_2 \\
+    \text{Sujeto a} \qquad & 2x_1 + x_2 \leq 100 \\
+    & x_1 + x_2 \leq 80 \\
+    & x_1, x_2 \geq 0 \
+    \end{align*}
+    
+    donde $x_1$ es la cantidad de unidades del producto A producido y $x_2$ es la cantidad de unidades del producto B producido. La solución óptima sería producir 40 unidades de A y 40 unidades de B, lo que maximizaría las ganancias en 160 unidades.
+    
+    \end{frame}
+
+    \begin{frame}
+        \frametitle{Cierre}
+       La optimización lineal se utiliza en los negocios para encontrar la mejor solución en problemas con restricciones y objetivos lineales. Aunque son sencillos, en la vida real los problemas pueden ser mucho más complejos, y la optimización lineal proporciona herramientas y metodologías para encontrar soluciones óptimas en una gran variedad de problemas de negocios.
+        
+    \end{frame}
+\section{Optimización no lineal}
+
+\begin{frame}
+    \frametitle{Optimización no lineal}
+    
+    La optimización no lineal es una técnica matemática utilizada para encontrar el mejor resultado en un problema donde las restricciones o los objetivos no son lineales. Es una herramienta esencial en la toma de decisiones empresariales, ya que permite a las empresas maximizar su utilidad o minimizar sus costos.
+    A diferencia de la optimización lineal, en la optimización no lineal las funciones objetivos y de restricción no son necesariamente lineales. Es una herramienta esencial en la toma de decisiones empresariales, ya que permite a las empresas maximizar su utilidad o minimizar sus costos en problemas más complejos.
+
+\end{frame}
+
+\begin{frame}
+    Un problema de optimización no lineal se puede presentar de la siguiente manera:
+
+    \begin{align*}
+        \text{Maximizar o minimizar:} \qquad & f(x) = f(x_1,x_2,x_3,....,x_n)\\
+        \text{Sujeto a} \qquad & g_i(x) <= 0, i=1,2,3....m \\
+        & h_i(x) = 0, i=1,2,3....p\\
+    \end{align*}
+    donde $x$ es el vector de variables de decisión, $f$ es la función objetivo, $g_i$ son las restricciones no lineales y $h_i$ son las restricciones lineales.
+
+\end{frame}
+
+\begin{frame}
+    En problemas de negocios, la optimización no lineal se utiliza para resolver problemas como la asignación de recursos, la programación de producción, la planificación de inventarios y la gestión de costos en situaciones más complejas que las lineales.
+\end{frame}
+
+\begin{frame}
+    Un ejemplo de aplicación de la optimización no lineal en los negocios es el problema de la asignación de recursos en una empresa con un presupuesto limitado. La empresa quiere maximizar su utilidad, pero la utilidad no es una función lineal de los recursos asignados. El problema se puede presentar de la siguiente manera:
+
+    \begin{align*}
+        \text{Maximizar} \qquad & f(x_1, x_2, x_3) = x_1\cdot x_2 \cdot x_3 \\
+        \text{Sujeto a} \qquad & x_1 + x_2 + x_3 \leq 100  & \text{Restricción de presupuesto}\\
+        & x_1 \geq 0, x_2 \geq 0, x_3 \geq 0  & \text{Restricción de no negatividad}\\
+    \end{align*}
+
+    donde $x_1$, $x_2$, $x_3$ son las cantidades de recursos asignados a cada proyecto. 
+\end{frame}
+\begin{frame}
+    \frametitle{Ejemplo 2: Producción}
+    
+    Otro ejemplo podría ser una empresa que quiere minimizar los costos de producción, pero los costos no son una función lineal de la producción. El problema se puede plantear como:
+    
+    \begin{align*}
+    \text{Minimizar} \qquad & f(x_1, x_2) = \sqrt{x_1} + x_2^2 \\
+    \text{Sujeto a} \qquad & x_1 + x_2 \leq 100 \\
+    & x_1, x_2 \geq 0 \\
+    \end{align*}
+    
+    donde $x_1$ es la cantidad de unidades del producto A producido y $x_2$ es la cantidad de unidades del producto B producido.
+
+\end{frame}
+\begin{frame}
+    \frametitle{Cierre}
+    
+    La optimización no lineal se utiliza en los negocios para encontrar la mejor solución en problemas con restricciones y objetivos no lineales. Aunque son sencillos, en la vida real los problemas pueden ser mucho más complejos, y la optimización no lineal proporciona herramientas y metodologías para encontrar soluciones óptimas en una gran variedad de problemas de negocios.
+    
+    \end{frame}
+
+\section{Usos de la optimización en los negocios}
+
+\begin{frame}
+    \frametitle{Usos de la optimización en los negocios}
+    
+    La optimización se utiliza en los negocios para encontrar la mejor solución en problemas con restricciones y objetivos lineales o no lineales. Aunque son sencillos, en la vida real los problemas pueden ser mucho más complejos, y la optimización proporciona herramientas y metodologías para encontrar soluciones óptimas en una gran variedad de problemas de negocios.
+    
+\end{frame}
+
+\begin{frame}
+    \frametitle{Ejemplo 1: Asignación de recursos}
+    
+    Una empresa puede utilizar la optimización para asignar recursos de manera eficiente a diferentes proyectos. 
+    Se utiliza la optimización para determinar la mejor manera de asignar su presupuesto a diferentes departamentos 
+    y se puede ilustrar esto mediante un gráfico de barras que muestra la asignación de recursos a cada departamento.
+\end{frame}
+    
+\begin{frame}
+    \frametitle{Ejemplo 2: Producción}
+    
+    Se puede utilizar la optimización para determinar la mejor manera de asignar sus recursos de producción a diferentes productos. Se puede ilustrar esto mediante un gráfico de línea que muestra la producción de cada producto a lo largo del tiempo.
+    
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Ejemplo 3: Gestión de inventarios}
+    
+        Se  puede utilizar la optimización para determinar el nivel óptimo de inventario para cada producto. Se puede ilustrar esto mediante un diagrama de Pareto que muestra el porcentaje de inventario total ocupado por cada producto.
+\end{frame}
+
+\begin{frame}
+    \frametitle{Ejemplo 4: Ruteo de vehiculos}
+    
+    Se puede utilizar la optimización para determinar la mejor manera de asignar sus vehículos a diferentes rutas. Se puede ilustrar esto mediante un mapa que muestra las rutas de los vehículos.
+
+\end{frame}
+
+\section{PULP}
+
+\begin{frame}
+    Pulp es una biblioteca de software de código abierto de Python para resolver problemas de programación lineal y programación entera. Es una interfaz simple y fácil de usar para las bibliotecas de optimización como GLPK, CPLEX, y Gurobi. Con Pulp, es posible definir problemas de programación lineal y programación entera en términos de ecuaciones matemáticas y restricciones, y utilizar algoritmos de optimización para encontrar soluciones óptimas.
+\end{frame}
+\begin{frame}
+    Pulp puede resolver problemas de programación lineal (PL) y programación entera (IP) y tiene soporte para resolver problemas de programación lineal entera (MIP) y problemas de programación no lineal (NLP).
+ Así mismo, Pulp permite la creación de modelos de optimización mediante la definición de variables, restricciones y funciones objetivo utilizando sintaxis fácil de entender. 
+\end{frame}
+\backmatter
+\end{document}

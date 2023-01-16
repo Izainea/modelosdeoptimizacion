@@ -1,0 +1,40 @@
+\documentclass{beamer}
+\usepackage{tikz}
+\usetikzlibrary{mindmap}
+\usetheme{Warsaw} % utilizar un tema pre-diseñado
+\usecolortheme{wolverine} % utilizar un esquema de color pre-diseñado
+
+\title{Título de tu Presentación}
+\author{Tu nombre}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\begin{frame}
+\frametitle{Diapositiva 1}
+
+\tikz[mindmap,text=white,
+        root concept/.style={concept color=blue},
+        level 1 concept/.append style=
+{every child/.style={concept color=blue!50}}]
+    \node [concept] {Importancia de la Optimización}
+    child[grow=120] {node[concept] {Maximizar utilidad}}
+    child[grow=90 ] {node[concept] {Minimizar costos}}
+    child[grow=60 ] {node[concept] {Tomar decisiones estratégicas}}
+    child[grow=30 ] {node[concept] {Mejorar la eficiencia}};
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Diapositiva 2}
+
+Aquí va el contenido de tu segunda diapositiva.
+
+\end{frame}
+
+% Continúa con más diapositivas según sea necesario
+
+\end{document}
+

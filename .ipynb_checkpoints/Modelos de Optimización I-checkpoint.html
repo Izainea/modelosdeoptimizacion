@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<title>Modelos de Optimización 1</title>
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src='https://kit.fontawesome.com/a076d05399.js'></script>
+<style>
+* {
+  box-sizing: border-box;
+}
+
+.column {
+  float: left;
+  width: 33%;
+  padding: 0 10px;
+}
+
+/* Remove extra left and right margins, due to padding */
+.row {margin: 0 -5px;}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive columns */
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+    display: block;
+    margin-bottom: 20px;
+  }
+}
+
+/* Style the counter cards */
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  padding: 16px;
+  text-align: center;
+  background-color: #f1f1f1;
+}
+body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
+.w3-row-padding img {margin-bottom: 12px}
+/* Set the width of the sidebar to 120px */
+.w3-sidebar {width: 120px;background: #222;}
+/* Add a left margin to the "page content" that matches the width of the sidebar (120px) */
+#main {margin-left: 120px}
+/* Remove margins from "page content" on small screens */
+@media only screen and (max-width: 600px) {#main {margin-left: 0}}
+</style>
+<body class="w3-white">
+
+<!-- Icon Bar (Sidebar - hidden on small screens) -->
+<nav class="w3-sidebar w3-bar-block w3-small w3-hide-small w3-center w3-teal">
+  <!-- Avatar image in top left corner -->
+  <a href="https://www.uexternado.edu.co/" class="w3-bar-item w3-button w3-padding-large w3-teal">
+    <img src="https://www.uexternado.edu.co/wp-content/themes/externado_theme/images/logo-uec.svg" class="w3-xxlarge" alt="UEC" style="width:100%;height:300%"></a>
+  <a href="#" class="w3-bar-item w3-button w3-padding-large w3-teal">
+    <i class="fa fa-home w3-xxlarge"></i>
+    <p>INICIO</p>
+  </a>
+  <a href="#about" class="w3-bar-item w3-button w3-padding-large w3-teal">
+    <i class="fas fa-chalkboard-teacher w3-xxlarge"></i>
+    <p>CURSO</p>
+  </a>
+  <a href="#photos" class="w3-bar-item w3-button w3-padding-large w3-teal">
+    <i class="fab fa-python w3-xxlarge"></i>
+    <p>PYTHON</p>
+  </a>
+  <a href="#contact" class="w3-bar-item w3-button w3-padding-large w3-teal">
+    <i class="fa fa-envelope w3-xxlarge"></i>
+    <p>CONTACTO</p>
+  </a>
+</nav>
+
+<!-- Navbar on small screens (Hidden on medium and large screens) -->
+<div class="w3-top w3-hide-large w3-hide-medium" id="myNavbar">
+  <div class="w3-bar w3-black w3-opacity w3-hover-opacity-off w3-center w3-small">
+    <a href="#" class="w3-bar-item w3-button w3-black" style="width:25% !important">INICIO</a>
+    <a href="#about" class="w3-bar-item w3-button" style="width:25% !important">CURSO</a>
+    <a href="#photos" class="w3-bar-item w3-button" style="width:25% !important">PYTHON</a>
+    <a href="#contact" class="w3-bar-item w3-button" style="width:25% !important">CONTACTO</a>
+  </div>
+</div>
+
+<!-- Page Content -->
+<div class="w3-padding-large" id="main">
+  <!-- Header/Home -->
+  <header class="w3-container w3-padding-32 w3-center w3-light-grey" id="home">
+    <span class="w3-large w3-text-teal w3-hide-small">Universidad Externado de Colombia</span>
+    <h1 class="w3-xxlarge w3-text-teal"> Modelos de optimización I</h1>
+    <p>Administración de Empresas</p>
+  </header>
+
+  <!-- About Section -->
+  <div class="w3-content w3-justify w3-text-grey w3-padding-64" id="about">
+    <h2 class="w3-text-teal">OBJETIVOS GENERALES</h2>
+    <hr style="width:200px" class="w3-opacity">
+    <p>Este curso tiene como objetivo que el estudiante aprenda a formular, solucionar e interpretar modelos matemáticos
+      con aplicaciones en diversas áreas como la manufactura, el transporte, las telecomunicaciones, la planeación
+      financiera, el cuidado de la salud, la milicia y los servicios públicos.
+    </p>
+    <p>Al finalizar la asignatura el estudiante estará en capacidad de:
+    </p>
+    <ul>
+      <li> Formular eficientemente algunos modelos y utilizar técnicas matemáticas para la solución de problemas de las
+        organizaciones haciendo énfasis en el área de producción.
+      </li>
+      <li>Solucionar problemas con ayuda del ordenador, utilizando los paquetes informáticos adecuados para cada tema.
+      </li>
+      <li>Interpretar y analizar la información suministrada por los modelos para ser adaptados a las condiciones reales
+        y ser utilizadas en los procesos de toma de decisiones.
+      </li>
+    </ul>
+    <h2 class="w3-padding-16 w3-text-teal">UNIDADES TEMÁTICAS</h2>
+    <p class="w3-wide"><i class="far fa-file-alt "></i> MODELOS MATEMÁTICOS</p>
+    <p class="w3-wide"><i class="far fa-file-alt "></i> CONCEPTOS BÁSICOS DE INVESTIGACIÓN DE OPERACIONES</p>
+    <p class="w3-wide"><i class="far fa-file-alt "></i> OPTIMIZACION LINEAL</p>
+    <div class="w3-white">
+      <ul>
+        <li>Método Gráfico</li>
+        <li>Formulación con variables unidimensionales</li>
+        <li>Formulación con arreglos de variables</li>
+        <li>Formulación con matrices de variables</li>
+      </ul>
+    </div>
+    <br>
+    <p class="w3-wide"><i class="far fa-file-alt "></i> PROGRAMACIÓN ENTERA</p>
+    <p class="w3-wide"><i class="far fa-file-alt "></i> OPTIMIZACION NO LINEAL</p>
+    <h2 class="w3-text-teal">MATERIALES y EVALUACIONES</h2>
+    <div class="w3-row w3-center w3-padding-16 w3-section w3-light-grey">
+
+      <a href="#photos">
+      <div class="w3-quarter w3-section">
+        <span class="w3-xxlarge"><i class="fab fa-python"></i></span><br>
+        Cuadernos Python
+      </div>
+      </a>
+
+      <a href="#casos">
+        <div class="w3-quarter w3-section">
+        <span class="w3-xxlarge"><i class="fas fa-folder-open"></i></span><br>
+        Casos de estudio
+        </div>
+      </a>
+
+      <a href="#quiz">
+        <div class="w3-quarter w3-section">
+        <span class="w3-xxlarge"><i class="fas fa-tasks"></i></span><br>
+        Quices y talleres
+      </div>
+      </a>
+      <a href="#proyecto">
+      <div class="w3-quarter w3-section">
+        <span class="w3-xxlarge"><i class="fas fa-project-diagram"></i></span><br>
+        Proyecto final
+      </div>
+       </a>
+
+
+
+
+
+    </div>
+
+    <a href="files/ProgramaM1.pdf">
+      <button class="w3-button w3-light-grey  w3-section">
+        <i class="fa fa-download"></i> Descarga Programa del Curso
+      </button>
+    </a>
+  </div>
+
+   <div class="w3-content w3-justify w3-text-grey w3-padding-64" id="photos">
+    <h3 class="w3-padding-16 w3-text-teal">CUADERNOS PYTHON</h3>
+<p>Una lista con los diferentes cuadernos que han desarrollado los profesores del Departamento de Matemáticas de la Universidad Externado de Colombia para el curso. </p>
+<div class="row">
+  <a href="Cuadernos/Módulo%20Álgebra%20Lineal.ipynb">
+  <div class="column">
+    <div class="card w3-hover-teal" >
+      <h3 class="w3-medium" ><b>Algebra Lineal</b></h3>
+      <p>Breve introducción a la construcción de matrices en Python, algunas operaciones elementales y un recuerdo de método de Gauss Jordan.</p>
+      <p></p>
+    </div>
+  </div>
+  </a>
+
+    <a href="Cuadernos/Examen%20Álgebra%20Lineal%20I.ipynb">
+  <div class="column">
+    <div class="card w3-hover-teal " >
+      <h3 class="w3-medium" ><b>Examen AL</b></h3>
+      <p>Una sencilla prueba para resolverla usando Python, examinamos junto con nuestros compañeros la forma de leer problemas y proponer soluciones.</p>
+      <p></p>
+    </div>
+  </div>
+    </a>
+    <a href="Cuadernos/Programación%20Lineal.ipynb">
+  <div class="column">
+    <div class="card w3-hover-teal" >
+      <h3 class="w3-medium" ><b>Programación Lineal</b></h3>
+      <p>Breve introducción a algunos conceptos elementales de un problema de programación lineal con una explicación del paquete PULP.</p>
+      <p></p>
+    </div>
+  </div>
+      </a>
+
+    <a href="Cuadernos/Problema%20de%20transporte.ipynb">
+   <div class="column">
+    <div class="card w3-hover-teal w3-padding-64" >
+      <h3 class="w3-medium" ><b>Problema de Transporte</b></h3>
+      <p>Que rutas debemos definir para optimizar costos.</p>
+      <p></p>
+    </div>
+  </div>
+      </a>
+
+    <a href="Cuadernos/Problema%20de%20asignación.ipynb">
+   <div class="column">
+    <div class="card w3-hover-teal w3-padding-64" >
+      <h3 class="w3-medium" ><b>Problema de Asignación</b></h3>
+      <p>Buscamos la asignación de agentes para optimizar utilidades.</p>
+      <p></p>
+    </div>
+  </div>
+      </a>
+
+    <a href="Cuadernos/Problema%20de%20Transbordo.ipynb">
+      <div class="column">
+    <div class="card w3-hover-teal w3-padding-64" >
+      <h3 class="w3-medium" ><b>Problema de Transbordo</b></h3>
+      <p>Problemas de transporte con transbordos.</p>
+      <p></p>
+    </div>
+  </div>
+      </a>
+
+    <a href="Cuadernos/Problema%200-1.ipynb">
+  <div class="column">
+    <div class="card w3-hover-teal w3-padding-64" >
+      <h3 class="w3-medium" ><b>Problema 0-1</b></h3>
+      <p>Una introducción a la programación lineal entera.</p>
+      <p></p>
+    </div>
+  </div>
+      </a>
+      </div>
+ </div>
+
+  <div class="w3-content w3-justify w3-text-grey w3-padding-16" id="casos">
+    <!-- Casos tables -->
+    <h3 class="w3-padding-16 w3-text-teal">CASOS DE ESTUDIO</h3>
+
+    <div class="w3-row-padding" style="margin:0 -16px">
+      <div class="w3-margin-bottom">
+        <ul class="w3-ul w3-white w3-opacity w3-hover-opacity-off">
+          <li class="w3-dark-grey w3-xlarge w3-padding-32">
+            <p class="w3-medium">PAQUETE PULP </p>
+            <h3><i>Optimization with PuLP</i></h3>
+            <p class="w3-small">Documentation in <a href="https://coin-or.github.io/pulp/">https://coin-or.github.io/pulp/</a>
+            </p>
+          </li>
+          <li class="w3-padding-16"><a href="https://coin-or.github.io/pulp/CaseStudies/a_blending_problem.html"> A Blending Problem
+</a></li>
+          <li class="w3-padding-16"><a href="https://coin-or.github.io/pulp/CaseStudies/a_set_partitioning_problem.html"> A Set Partitioning Problem
+</a></li>
+          <li class="w3-padding-16"><a href="https://coin-or.github.io/pulp/CaseStudies/a_sudoku_problem.html"> A Sudoku Problem formulated as an LP
+</a></li>
+          <li class="w3-padding-16"><a href="https://coin-or.github.io/pulp/CaseStudies/a_transportation_problem.html">A Transportation Problem
+</a></li>
+          <li class="w3-padding-16"><a href="https://coin-or.github.io/pulp/CaseStudies/a_two_stage_production_planning_problem.html"> A Two Stage Production Planning Problem</a></li>
+
+          </li>
+          <li class="w3-light-grey w3-padding-24">
+           <a href="https://coin-or.github.io/pulp/index.html"> <button class="w3-button w3-white w3-padding-large w3-hover-black">Pulp package</button></a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="w3-margin-bottom">
+        <ul class="w3-ul w3-white w3-opacity w3-hover-opacity-off">
+          <li class="w3-dark-grey w3-xlarge w3-padding-32">
+            <p class="w3-medium">CASOS PARA RESOLVER</p>
+            <h3><i>Métodos cuantitativos para los negocios, 11a ed.</i></h3>
+            <p class="w3-small">Anderson, David R., Dennis J. Sweeney, Thomas A. Williams,
+            Jeffrey D. Camm y Kipp Martin. Cengage Learning 2011
+            </p>
+          </li>
+          <li class="w3-padding-16">Equilibrio de la carga de trabajo. pág 285.</li>
+          <li class="w3-padding-16">Mezcla de productos, estrategia de inversión y estrategia de arrendamiento de camiones. Pág 349.</li>
+          <li class="w3-padding-16">Campañas publicitarias, capacitaciones eficientes, programación de planta laboral y otros. Pág 406. </li>
+          <li class="w3-padding-16">Modelos de distribución. Pág 468.</li>
+          <li class="w3-padding-16">Programación Lineal Entera. Pág 518.</li>
+          <li class="w3-padding-16">Optimización avanzada. Pág 564.</li>
+          </li>
+          <li class="w3-light-grey w3-padding-24">
+            <a href="http://eds.b.ebscohost.com/eds/detail/detail?vid=1&sid=bcdc8d5a-b350-4feb-86ff-7a1c096cd99b%40pdc-v-sessmgr03&bdata=Jmxhbmc9ZXMmc2l0ZT1lZHMtbGl2ZSZzY29wZT1zaXRl#AN=uec.244081&db=cat05988a"><button class="w3-button w3-white w3-padding-large w3-hover-black">Consulta Libro</button></a>
+          </li>
+        </ul>
+      </div>
+
+
+      <!-- End Casos tables -->
+    </div>
+    <!-- End About Section -->
+  </div>
+
+  <!-- Portfolio Section -->
+
+  <!-- End Portfolio Section -->
+
+<div class="w3-content w3-justify w3-text-grey w3-padding-64" id="quiz">
+      <h2 class="w3-teal"> QUICES Y TALLERES</h2>
+    <p> Información proximamente...</p>
+</div>
+
+    <div class="w3-content w3-justify w3-text-grey w3-padding-64" id="proyecto">
+      <h2 class="w3-teal"> PROYECTO FINAL</h2>
+      <p> Información proximamente...</p>
+</div>
+
+
+
+<div class="w3-content w3-justify w3-text-grey w3-padding-64"  id="contact">
+    <div class="w3-center w3-padding-64">
+      <span class="w3-xlarge w3-bottombar w3-border-dark-grey w3-padding-16">PROFESORES</span>
+    </div>
+
+    <div class="w3-third w3-margin-bottom">
+      <div class="w3-card-4" >
+        <img src="https://www.uexternado.edu.co/wp-content/uploads/2019/06/avatar-mujer.jpg" alt="Margui Romero" style="width:100%">
+        <div class="w3-container">
+          <h3 class="w3-medium">Margui A Romero Pinedo</h3>
+          <p class="w3-opacity">Matemática</p>
+          <p  style="height: 150px"> <i>Intereses: </i> Matemática Aplicada, Métodos y Análisis Numérico, Ecuaciones Diferenciales Parciales y Docencia en Matemáticas.</p>
+          <p><a href="mailto:margui.romero@uexternado.edu.co"> <button class="w3-button w3-light-grey w3-block"> margui.romero@uexternado.edu.co </button></a></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="w3-third w3-margin-bottom">
+      <div class="w3-card-4" >
+        <img src="data:image/jpeg;base64,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" alt="Edwin Castillo" style="width:100%">
+        <div class="w3-container">
+          <h3 class="w3-medium">Edwin Javier Castillo Carreño</h3>
+          <p class="w3-opacity">Matemático</p>
+          <p  style="height: 150px"> <i>Intereses: </i> Estadística Aplicada, Datos Funcionales, Analítica de datos.</p>
+          <p><a href="mailto:edwin.castillo@uexternado.edu.co"> <button class="w3-button w3-light-grey w3-block"> edwin.castillo@uexternado.edu.co </button></a></p>
+        </div>
+      </div>
+    </div>
+
+      <div class="w3-third w3-margin-bottom">
+      <div class="w3-card-4" >
+        <img src="https://www.uexternado.edu.co/wp-content/uploads/2020/02/150.jpg" alt="Isaac Zainea" style="width:100%">
+        <div class="w3-container">
+          <h3 class="w3-medium">Carlos Isaac Zainea Maya</h3>
+          <p class="w3-opacity">Matemático</p>
+          <p style="height: 150px"> <i>Intereses: </i> Topología de datos, Teoría de representaciones, Inteligencia artificial, Minería de datos, Teoría de autómatas, Teoría de computación, Álgebra geométrica.</p>
+          <p><a href="mailto:carlos.zainea@uexternado.edu.co" ><button class="w3-button w3-light-grey w3-block"> carlos.zainea@uexternado.edu.co </button></a></p>
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+
+    <!-- Footer -->
+  <footer class="w3-content w3-padding-64 w3-text-grey w3-xlarge">
+    <p class="w3-medium">Powered by <a href="https://izainea.github.io/">Isaac Zainea</a></p>
+  <!-- End footer -->
+  </footer>
+
+<!-- END PAGE CONTENT -->
+</div>
+
+    </div>
+</body>
+</html>
+
